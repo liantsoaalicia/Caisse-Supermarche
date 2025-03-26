@@ -1,0 +1,176 @@
+/* Variables pour les couleurs de Noël */
+:root {
+    --christmas-red: #D42426;
+    --christmas-green: #165B33;
+    --christmas-gold: #FFD700;
+    --snow-white: #F8F8FF;
+    --pine-dark: #0B3B24;
+    --table-stripe: rgba(22, 91, 51, 0.05);
+    --validated: #34a853;
+    --pending: #fbbc05;
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--snow-white) 0%, #E8F4F8 100%);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Effet de neige en arrière-plan */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(#fff 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  
+  h1 {
+    color: var(--christmas-red);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Décorations du titre */
+  h1::before, h1::after {
+    content: '🎄';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+  }
+  
+  h1::before {
+    left: -3rem;
+  }
+  
+  h1::after {
+    right: -3rem;
+  }
+  
+  /* Style de la table */
+  table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: white;
+    border: 3px solid var(--christmas-gold);
+  }
+  
+  /* En-têtes */
+  thead {
+    background: var(--christmas-green);
+    color: white;
+  }
+  
+  th {
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Corps du tableau */
+  td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+  }
+  
+  /* Lignes alternées */
+  tr:nth-child(even) {
+    background: var(--table-stripe);
+  }
+  
+  /* Hover sur les lignes */
+  tbody tr:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transition: background 0.3s ease;
+  }
+  
+  /* Style des statuts */
+  td:nth-child(4) {
+    font-weight: bold;
+  }
+  
+  td:nth-child(4):contains('Validé') {
+    color: var(--validated);
+  }
+  
+  td:nth-child(4):contains('En attente') {
+    color: var(--pending);
+  }
+  
+  /* Style du bouton de validation */
+  a {
+    text-decoration: none;
+    background: var(--christmas-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    background: #BF2026;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animation subtile pour les nouvelles lignes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  tbody tr {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    table {
+      margin: 1rem;
+    }
+    
+    th, td {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    h1::before, h1::after {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    th, td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  }

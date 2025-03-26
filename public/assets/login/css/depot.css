@@ -1,0 +1,143 @@
+/* Variables pour les couleurs de Noël */
+:root {
+    --christmas-red: #D42426;
+    --christmas-green: #165B33;
+    --christmas-gold: #FFD700;
+    --snow-white: #F8F8FF;
+    --pine-dark: #0B3B24;
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--snow-white) 0%, #E8F4F8 100%);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 2rem;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Effet de neige en arrière-plan */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(#fff 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  
+  /* Style du formulaire */
+  form {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    border: 2px solid var(--christmas-gold);
+  }
+  
+  /* Effet décoratif de Noël */
+  form::before {
+    content: '🎄';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  label {
+    display: block;
+    color: var(--christmas-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    border: 3px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: center;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="number"]:focus {
+    outline: none;
+    border-color: var(--christmas-gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+  
+  /* Style du bouton */
+  button {
+    background-color: var(--christmas-red);
+    color: white;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 36, 38, 0.3);
+    background-color: #BF2026;
+  }
+  
+  /* Message d'erreur */
+  p {
+    color: var(--christmas-red);
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: rgba(212, 36, 38, 0.1);
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  /* Animation du focus */
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px var(--christmas-gold); }
+    50% { box-shadow: 0 0 20px var(--christmas-gold); }
+    100% { box-shadow: 0 0 5px var(--christmas-gold); }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    form {
+      padding: 2rem;
+      margin: 1rem;
+    }
+    
+    label {
+      font-size: 1.3rem;
+    }
+    
+    input[type="number"] {
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+    
+    button {
+      padding: 1rem 2rem;
+    }
+  }
