@@ -15,13 +15,15 @@ CREATE TABLE caisse (
 
 CREATE TABLE employe (
     idEmploye INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50)
+    nom VARCHAR(50),
+    mdp VARCHAR(50)
 );
 
 CREATE TABLE achat (
     idAchat INT AUTO_INCREMENT PRIMARY KEY,
     idProduit INT,
     idCaisse INT,
+    dateAchat DATE,
     FOREIGN KEY (idProduit) REFERENCES produit(idProduit),
     FOREIGN KEY (idCaisse) REFERENCES caisse(idCaisse)
 );
@@ -36,3 +38,7 @@ INSERT INTO produit (designation, prix, quantiteEnStock) VALUES
 INSERT INTO caisse (nom) VALUES
 ('Caisse 1'),
 ('Caisse 2');
+
+INSERT INTO employe (nom, mdp) VALUES
+('Emp1', 'emp1'),
+('Emp2', 'emp2');

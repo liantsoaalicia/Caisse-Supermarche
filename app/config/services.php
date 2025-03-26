@@ -4,7 +4,7 @@ use flight\Engine;
 use flight\database\PdoWrapper;
 use flight\debug\database\PdoQueryCapture;
 use Tracy\Debugger;
-use app\models\ProductModel;
+use app\models\CaisseModel;
 
 /** 
  * @var array $config This comes from the returned array at the bottom of the config.php file
@@ -28,8 +28,6 @@ use app\models\ProductModel;
 // Redis? This is where you'd set that up
 // $app->register('redis', Redis::class, [ $config['redis']['host'], $config['redis']['port'] ]);
 
-
-
-Flight::map('productModel', function () {
-    return new ProductModel(Flight::db());
+Flight::map('CaisseModel', function () {
+    return new CaisseModel(Flight::db());
 });
